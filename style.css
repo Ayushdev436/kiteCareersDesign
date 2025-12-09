@@ -6,7 +6,7 @@ body {
 /* TOP BLACK BAR */
 .top-offer-bar {
     background: #000;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 .bg {
     background-color: #7E00A7 ;
@@ -19,12 +19,11 @@ body {
 
 /* BUTTON STYLES */
 .btns{
-    height: 40px;
-    width: 119px;
-   
+ 
+    padding: 7px 36px;
 }
 .nav-item{
-     font-size: 14px !important;
+     font-size: 0.9rem !important;
 }
 .btn-purple {
     background-color: #7E00A7 !important;
@@ -48,7 +47,7 @@ body {
 
 .search-bar {
     position: relative;
-    width: 350px;
+    min-width: 350px;
 }
 
 .search-bar input {
@@ -60,15 +59,14 @@ body {
 
 .search-bar .search-icon {
     position: absolute;
-    font-size: 18px;
-    color: gray;
-    
+    font-size: 1.1rem;
+    color: gray;  
 }
 
 /* NAV LINKS */
 .nav-link {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #000000;
     margin-right: 20px;
 }
@@ -77,6 +75,11 @@ body {
     color: #6C2FDB !important;
 } */
 
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}   
 
 
 
@@ -95,8 +98,9 @@ body {
   font-weight: 400;
   color: #000;
   max-width: 455px;
-  line-height: 52px;
 }
+
+
 
 .text-purple {
   color: #7E00A7;
@@ -108,12 +112,11 @@ body {
   background-color: #7E00A7;
   border: none;
   color: #fff;
-  padding: 0.85rem 2.2rem;
+  padding: 11px 35px;
   border-radius: 10px;
   font-weight: 700;
   font-size: 1.1rem;
-  width:206px ;
-  height: 50px;
+ 
  
 }
 
@@ -123,7 +126,7 @@ body {
 }
 
 /* Stats below button */
-.stats-text {
+.stat-text {
   color: #7E00A7;
   font-weight: 700;
   font-size: 1.5rem;
@@ -136,36 +139,40 @@ body {
 
 .stat-label {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #6A6F73;
 }
 
 
 
 /* RIGHT HERO - Circles container */
+
+
 .circle-wrapper {
   width: 265px;
   height: 263px;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  
   margin-right: 0.6rem;
   border: 1px solid black;
-
 }
+
+
+
 .circle-1 {
   z-index: 2;
-  background-image: url("img.jpg");
+  background-image: url("./images/img.jpg");
 }
 
 .circle-2 {
   width: 375px;
   height: 374px;
   z-index: 1;
-  background-image: url("Ellipse\ 5.png");
+  background-image: url("./images/Ellipse\ 5.png ");
   box-shadow: 2px 20px 6px rgb(108 47 219 / 0.3);
 }
+
 
 
 /* SEMI-ELLIPSE BASE STYLE */
@@ -181,6 +188,8 @@ body {
     justify-content: center;
 }
 
+
+
 /* Left ellipse (on left circle) */
 .ellipse-left {
     width: 239px;
@@ -193,6 +202,8 @@ body {
     border-radius: 71px ;
     z-index: 10;
 }
+
+
 
 /* Right ellipse (on right circle) */
 .ellipse-right {
@@ -207,19 +218,17 @@ body {
     z-index: 10;
 }
 
-/* Text styles */
-.big {
-    font-size: 77px;
-    font-weight: 600;
-    line-height: 100%;
-   
-}
-.text-small {
-   
-    font-size: 12px;
-    font-weight: 700;
-    color: #000;
-}
+/* Text styles */ 
+.big { 
+  font-size: 77px; 
+  font-weight: 600;
+   line-height: 100%; 
+  } 
+.text-small { 
+  font-size: 12px;
+   font-weight: 700;
+    color: #000; 
+  }
 
 /* Small faint decorative circle */
 .circle-small {
@@ -234,32 +243,52 @@ body {
     
 }
 
+/* ---------- RESPONSIVE FIXES FOR RIGHT HERO ---------- */
+
+
+
+
+
 /* Card section-2 */
 /* Section background */
+
 .stats-section {
     background: #ffffff;
 }
 
 /* Cards */
-.stat-card {
-    width: 200px;
-    height: 200px;
+.stats-card {
+    /* width: 200px; */
+    min-height: 200px;
+    max-width: 227px;
     background: linear-gradient(180deg, #ffffff 0%, #F5DEFF 100%);
     border-radius: 15px;
     text-align: center;
-    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 10px 20px rgba(126, 0, 167, 0.15);
     transition: 0.3s ease;
 }
 
 /* Center card slightly up */
-.center-card {
-     margin-top: -15%; 
+/* Center card only raised on large screens */
+@media (min-width: 992px) {  /* lg breakpoint */
+    .center-card {
+        transform: translateY(-30%);
+    }
+}
 
+/* Remove raised effect on mobile/tablet */
+@media (max-width: 991px) {
+    .center-card {
+        transform: none;
+    }
 }
 
 /* Stat Numbers */
-.stat-number {
+.stats-number {
     font-size: 2rem;
     font-weight: 700;
     color: #7E00A7;
@@ -267,34 +296,36 @@ body {
 }
 
 /* Stat Text */
-.stat-text {
-    font-size: 15px;
+.stats-text {
+    font-size: 0.95rem;
     color: #6A6F73;
-    line-height: 1.3rem;
+    
 }
 
-/* Purple soft glow background for image */
+
+/* IMAGE SECTION */
 .image-container {
     position: relative;
-    width: max-content; /* adjusts container to image size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-bg {
     position: absolute;
-    width: 100%;       /* match container width */
-    height: 100%;      /* match container height */
-    background: radial-gradient(circle, #7E00A7 0%, #ffffff 70%);
-    top: 0;
-    left: 0;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, #7E00A7 0%, #ffffff 75%);
     border-radius: 50%;
-    filter: blur(20px); /* increase blur to look like glow */
+    filter: blur(25px);
+    z-index: 1;
 }
 
 .stats-image {
-    display: block;
-    max-width: 569px;
-    height:435px;
     position: relative;
+    width: 100%;
+    /* max-width: 550px; */
+    z-index: 2;
 }
 
 /* cards section-3 */
@@ -304,16 +335,19 @@ body {
     color: white;
     font-weight: 700;
     font-size: 16px;
-    width: 190px;
-    height: 50px;
+    /* max-width: 190px;
+    max-height: 50px; */
     border-radius: 10px;
+    padding: 12px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 30px;
   }
   /* Cards container */
   .tutor-cards {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+
   }
   /* Each card */
   .tutor-card {
@@ -321,8 +355,8 @@ body {
     border: 1.5px solid #ddd;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(126, 0, 167, 0.15);
-    width: 398px;
-    height: 470px;
+    /* max-width: 398px;
+    max-height: 470px; */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -330,7 +364,7 @@ body {
   /* Image */
   .tutor-image {
     width: 100%;
-    height: 316px;
+    max-height: 316px;
     padding: 10px ;
     border-radius: 23px;
     object-fit: cover;
@@ -338,7 +372,7 @@ body {
   }
   /* Card body */
   .card-body {
-    padding: 0 15px 10px;
+    padding: 0 8px 16px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -351,9 +385,7 @@ body {
     color: #454C63;
   }
   /* Rating row */
-  .rating-row {
-    font-size: 0.9rem;
-    color: #444;
+  .rating-row { 
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -377,18 +409,18 @@ body {
     font-weight: 700;
     line-height: 11px;
   }
-  /* Horizontal divider */
-  .divider {
-    border-top: 1px solid #ddd;
-    margin: 8px 0 15px 0;
-  }
+ 
   .footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* pushes top and bottom apart */
     flex-grow: 1; /* ensures it takes remaining space in card-body */
 }
-
+ /* Horizontal divider */
+  .divider {
+    border-top: 1px solid #ddd;
+    margin-bottom: 16px;
+  }
   
   
   /* Bottom info + button container */
@@ -407,8 +439,8 @@ body {
     gap: 6px;
   }
   .rated-for img{
-    width: 1rem;
-    height: 1.5rem;
+   max-width: 1rem;
+    max-height: 1.5rem;
     
   }
   /* Wrapper for the icon and its background */
@@ -416,7 +448,7 @@ body {
     position: relative;
     width: 1.5rem;  /* adjust to desired size */
     height: 1.9rem;
-    background-image: url('Group\ 45.png'); /* your background image */
+    background-image: url('./icons/Group\ 45.png'); /* your background image */
     background-size: cover;
     background-position: top;
 }
@@ -427,8 +459,8 @@ body {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%); /* center the icon */
-    width: 0.7rem;   /* adjust icon size */
-    height: 0.7rem;
+    max-width: 0.7rem;   /* adjust icon size */
+    max-height: 0.7rem;
 }
 
 
@@ -437,13 +469,15 @@ body {
     border: none;
     color: white;
     font-weight: 400;
-    line-height: 11px;
-    padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px ;
     border-radius: 10px;
     font-size: 1rem;
-    width: 171px;
-    height: 39px;
-    text-align: center;
+    max-width: 171px;
+    max-height: 39px;
+  
   }
   .btn-business:hover {
     background-color: #5c0073;
@@ -457,20 +491,21 @@ body {
 }
 
 
-.owl-nav button {
+.owl-nav button span{
   background: white !important;
   border: none;
   border-radius: 50% !important;
   box-shadow: 0px 2px 8px #C0C9E5;
-  width: 50px;
-  height: 50px;
+  /* width: 50px;
+  height: 50px; */
+  padding: 10px !important;
   pointer-events: all;   /* buttons clickable rahein */
 
 }
 .owl-prev { 
    position: absolute;
    left: 458px;   /* image ke left side */
-   bottom: -13px;
+   bottom: -2px;
  
 }
 
@@ -478,8 +513,19 @@ body {
 .owl-next {
     position: absolute;
     right: 458px;  /* image ke right side */
-    bottom: -13px;
+    bottom: -2px;
     
+}
+@media (max-width: 1400px) {
+  .owl-prev { left: 200px; }
+  .owl-next { right: 200px; }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .owl-nav {
+    display: none;
+  }
 }
 
 .owl-nav button span {
@@ -513,30 +559,292 @@ body {
   .goal-selection {
     background: #FDF9FF;
     border-radius: 15px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 15px;
     width: 100%;
-   
-    height: 130px;
-    padding: 16px 8px;
+    padding: 16px;
   }
   .goal-btn {
     border-radius: 10px;
     border: 1px solid #7E00A7;
-    height: 60px;
     font-weight: 400;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 300px;
     background-color: #FFFFFF;
     color:#454C63;
     text-align: center;
+    padding: 16px 8px;
   }
   .goal-btn.active,
   .goal-btn:hover {
     background-color: #7E00A7;
     color: #fff;
   }
+
+
+  /* Course section-4 */
+  .course-card{
+    border: 1px solid #7E00A7;
+    border-radius: 14px;
+    /* width: 360px;
+    max-height: 396px;  */
+  }
+  .course-image{
+    width: 100%;
+    /* height: 216px; */
+    padding: 10px;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+  .course-body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .top-row{
+     padding: 0 15px 10px;
+  }
+  .course-name{
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #454C63;
+  }
+  .course-star{
+    color: #454C63;
+    padding-right: 7px;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .fa-star{
+    color: #FAC310;
+  }
+
+  .course-divider{
+    border-top: 1px solid #7E00A7;
+    margin-bottom: 16px; 
+  }
+  .course-bottomrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 10px;
+  }
+    
+  .course-rate {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #7E00A7;
+  }
+
+  .coursebtn-business {
+    background-color: #7E00A7;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 6px 35px;
+    border-radius: 10px;
+    /* font-size: 1.1rem;
+    width: 128px;
+    height: 41px; */
+    text-align: center;
+  }
+  .coursebtn-business:hover {
+    background-color: #7E00A7;
+  }
+
+
+
+
+  /* work section-5 */
+  /* TITLE */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  
+}
+  /* SECTION */
+.how-it-works {
+  background: #fff;
+}
+
+
+.sideimg {
+  width: 100%;
+  /* height: 591px; */
+  object-fit: contain;          /* Ensures clean crop */
+  object-position: center; 
+}
+
+
+
+
+/* Right side */
+
+/* STEP CARD */
+.step-item { 
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px 35px;
+  box-shadow: 0 5px 21px #DBC0E57D;
+  }
+
+.step-body h5 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #454C63;
+}
+
+.step-body p {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.25rem;
+  color: #454C63;
+}
+
+/* STEP NUMBER */
+.step-number {
+  font-size: 4.4rem;
+  font-weight: 700;
+  color: #DBC0E57D;
+ 
+}
+
+/* STEP TEXT */
+.step-content h6 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-size: 14px;
+  color: #6A6F73;
+  margin: 0;
+}
+
+/* RESPONSIVE FIXES */
+
+
+@media (min-width: 992px) and (max-width: 1200px){
+   .sideimg {
+        height: 605px; /* Reduce the height */
+       
+    }
+    .step-item{
+       padding: 16px;
+    }
+    .step-body h5{
+      font-size: 1rem;
+    }
+    .step-body p{
+      font-size: 1rem;
+    }
+    .step-number {
+      font-size: 4rem;
+}
+ 
+}
+@media (min-width: 1200px) and (max-width: 1400px){
+    .sideimg {
+        height: 580px; /* Reduce the height */
+       
+    }
+     .step-item{
+       padding: 16px 24px;
+    }
+    .step-body h5{
+      font-size: 1.2rem;
+    }
+    .step-body p{
+      font-size: 1.2rem;
+    }
+    .step-number {
+      font-size: 4.2rem;
+
+}
+
+}
+@media (min-width: 1400px) {
+    .sideimg {
+        height: 687px; /* Reduce the height */
+       
+    }
+    .step-wrapper {
+        margin-bottom: 2.5rem !important; /* mb-5 */
+    }
+
+
+}
+
+@media (max-width: 992px) {
+    /* For tablets or medium-sized screens */
+    .sideimg {
+        height: 350px;
+        display: none; /* Reduce the height */
+    } 
+}
+
+  
+
+/* section-6 */
+/* SECTION BASE */ 
+    .phone-hero {
+      background-color: #7E00A7;
+      padding: 60px 0 0 45px;
+      background-image: url(./images/Vector\ 2\ \(1\).png);
+       background-position: right top;
+      background-repeat: no-repeat;
+      background-size: contain;
+      
+     
+    }
+  
+
+
+    /* LEFT TEXT BLOCK */
+    .head {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+       
+    }
+
+
+    /* list items on left */
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+     
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 1.61rem;
+      font-weight: 400;
+      color: white;
+    }
+
+    
+    
+
+    /* RIGHT PHONE IMAGE WRAPPER */
+    .phone-wrap{
+      height: 100%;
+    }
+
+    .phone-image {
+      height: 100%;
+      box-shadow: -5px -7px 70px #000000;
+      border-radius: 28px;
+      
+    }
+
+   

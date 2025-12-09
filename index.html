@@ -1,327 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tutor Cards</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hero - Phone Showcase</title>
 
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Font Awesome (for small arrows if desired) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+  <style>
+    :root {
+      --purple: #7E00A7;
+      --white: #ffffff;
+      --muted-white: rgba(255,255,255,0.95);
+    }
 
+    /* SECTION BASE */
+    .phone-hero {
+      background-color: var(--purple);
+      /* background image (vector lines) placed at right */
+      background-image: url('vector2.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+      /* use contain so it doesn't tile and scales nicely; adjust if you prefer cover */
+      background-size: auto 80%;
+      color: var(--white);
+      padding-top: 48px;
+      padding-bottom: 48px;
+      overflow: hidden;
+      position: relative;
+    }
 
-  /* Each card */
-  .tutor-card {
-    background: #fff;
-    border: 1.5px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 8px 15px rgba(126, 0, 167, 0.15);
-    width: 398px;
-    height: 470px;
-    display: flex;
-    flex-direction: column;
-  
-  }
-  /* Image */
-  .tutor-image {
-    width: 100%;
-    height: 316px;
-    padding: 10px ;
-    border-radius: 23px;
-    object-fit: cover;
-   
-  }
-  /* Card body */
-  .card-body {
-    padding: 0 15px 10px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  /* Name */
-  .tutor-name {
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #454C63;
-  }
-  /* Rating row */
-  .rating-row {
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;            
-  }
-  .rating-star {
-    color: #444;
-    border-right: 0.5px solid #C0C8E5;
-    padding-right: 7px;
-    font-weight: 700;
-    font-size: 0.9rem;
-   
-  }
-  .rating-star i{
-    color: #FAC310;
-  }
-  /* Sessions count text */
-  .sessions-text {
-    color: #444;
-    font-size: 0.9rem;
-    font-weight: 700;
-    line-height: 11px;
-  }
-  /* Horizontal divider */
-  .divider {
-    border-top: 1px solid #ddd;
-    margin: 8px 0 15px 0;
-  }
-  .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* pushes top and bottom apart */
-    flex-grow: 1; /* ensures it takes remaining space in card-body */
-}
+    /* container inner spacing so content sits like screenshot */
+    .phone-hero .container {
+      position: relative;
+      z-index: 2;
+    }
 
-  
-  
-  /* Bottom info + button container */
-  .bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .rated-for {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #454C63;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .rated-for img{
-    width: 1rem;
-    height: 1.5rem;
-    
-  }
-  /* Wrapper for the icon and its background */
-.icon-wrapper {
-    position: relative;
-    width: 1.5rem;  /* adjust to desired size */
-    height: 1.9rem;
-    background-image: url('Group\ 45.png'); /* your background image */
-    background-size: cover;
-    background-position: top;
-}
+    /* LEFT TEXT BLOCK */
+    .hero-left {
+      padding: 40px 1rem;
+    }
 
-/* Icon on top of the background */
-.icon-wrapper img {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* center the icon */
-    width: 0.7rem;   /* adjust icon size */
-    height: 0.7rem;
-}
+    .hero-left .eyebrow {
+      font-weight: 700;
+      opacity: 0.95;
+    }
 
+    .hero-heading {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 12px 0 24px;
+      max-width: 520px;
+    }
 
-  .btn-business {
-    background-color: #7E00A7;
-    border: none;
-    color: white;
-    font-weight: 400;
-    line-height: 11px;
-    padding: 16px 8px;
-    border-radius: 10px;
-    font-size: 1rem;
-    width: 171px;
-    height: 39px;
-    text-align: center;
-  }
-  .btn-business:hover {
-    background-color: #5c0073;
-  }
- 
-/* Fix for hidden dots */
-.owl-carousel .owl-stage-outer {
-    padding-bottom: 40px !important;
-}
+    /* list items on left */
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 420px;
+    }
 
-/* Dot styling */
-.owl-dots {
-    text-align: center;
-    margin-top: 10px;
-}
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+    }
 
-.owl-dots .owl-dot span {
-    width: 12px;
-    height: 12px;
-    background: #d3c1e0;
-    display: block;
-    border-radius: 50%;
-}
+    /* small triangle/chevron on the right of each row (like screenshot) */
+    .features-list li::after {
+      content: "\f105"; /* FontAwesome chevron-right */
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-left: auto;
+      color: rgba(255,255,255,0.95);
+      font-size: 0.9rem;
+    }
 
-.owl-dots .owl-dot.active span {
-    background: #7E00A7 !important;
-}
+    /* RIGHT PHONE IMAGE WRAPPER */
+    .phone-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 320px;
+    }
 
-.owl-carousel .owl-stage-outer {
-    padding-bottom: 40px !important;   /* space for dots */
-}
+    .phone-image {
+      /* default: scaled for medium screens */
+      width: 320px;
+      max-width: 90%;
+      display: block;
+      transform: translateY(0);
+      /* slight shadow for depth */
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      border-radius: 28px;
+      background: white; /* in case phone has transparent background */
+    }
 
+    /* decorative circle / accent behind phone (optional, mirrors screenshot style) */
+    .phone-hero .accent-circle {
+      position: absolute;
+      right: 6%;
+      top: 12%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.06);
+      z-index: 1;
+      pointer-events: none;
+    }
 
-</style>
+    /* RESPONSIVE TUNING */
+    /* Large screens - make phone larger and slightly offset upward */
+    @media (min-width: 992px) {
+      .phone-image { width: 420px; }
+      .hero-heading { font-size: 2.6rem; }
+      .phone-hero { background-size: auto 90%; }
+      .phone-hero .accent-circle { right: 8%; top: 6%; width: 320px; height: 320px; border-width: 8px; }
+    }
+
+    /* Extra large */
+    @media (min-width: 1400px) {
+      .phone-image { width: 520px; }
+      .hero-heading { font-size: 3rem; max-width: 640px; }
+    }
+
+    /* Tablet / small desktop: keep phone proportion and reduce background image size */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .phone-image { width: 380px; }
+      .phone-hero { background-size: auto 70%; background-position: right 20% center; }
+    }
+
+    /* Mobile: stack, shrink text and phone */
+    @media (max-width: 767.98px) {
+      .phone-hero {
+        padding-top: 36px;
+        padding-bottom: 36px;
+        background-size: auto 55%;
+        background-position: right 60% center;
+      }
+      .hero-heading { font-size: 1.6rem; text-align: left; }
+      .features-list li { font-size: 1rem; }
+      .phone-image { width: 240px; margin-top: 18px; }
+      .phone-hero .accent-circle { display: none; }
+      .hero-left { padding: 18px 1rem; }
+    }
+
+    /* small adjustment to ensure left content has breathing room on very wide screens */
+    @media (min-width: 1600px) {
+      .hero-left { padding-left: 8rem; }
+    }
+  </style>
 </head>
 <body>
-    
- <!-- Tutor Cards -->
-  
-   <div class="owl-carousel owl-theme">
-    <!-- Card 1 -->
-    <div class="tutor-card">
-      <img src="Mask group (4).png" alt="Aisha" class="tutor-image" />
-      <div class="card-body ">
-        <div class="top-row d-flex justify-content-between">
-          <div class="tutor-name">Aisha</div>
-          <div class="rating-row">
-            <span class="rating-star">4.9 <i class="fas fa-star"></i></span>
-            <span class="sessions-text">2453+ sessions</span>
+
+  <!-- HERO -->
+  <section class="phone-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- LEFT -->
+        <div class="col-12 col-md-6 hero-left">
+          <div class="eyebrow">Improve 3x faster than traditional methods</div>
+
+          <h1 class="hero-heading">
+            Learn from anywhere and build your <span style="color:#fff; font-weight:900;">bright career.</span>
+          </h1>
+
+          <ul class="features-list">
+            <li>Learn from experts</li>
+            <li>Choose your time</li>
+            <li>Schedule your session</li>
+            <li>Get into real conversation</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col-12 col-md-6">
+          <div class="phone-wrap">
+            <!-- optional accent circle to mirror screenshot -->
+            <div class="accent-circle" aria-hidden="true"></div>
+
+            <!-- replace 'phone.png' with your file; keep same sizing -->
+            <img src="phone.png" alt="Phone preview" class="phone-image">
           </div>
         </div>
-        
-        <div class="footer ">
-          <div class="divider"></div>
-         <div class="bottom-row">
-          <div class="rated-for">
-            Rated for  
-          <div class="icon-wrapper">
-          <img src="Vector.png" alt="Icon">
-          </div>
-          </div>
-          <button class="btn-business">Business English</button>
-          </div>
-        </div>
-        
       </div>
     </div>
+  </section>
 
-    <!-- Card 2 -->
-    <div class="tutor-card">
-      <img src="Mask group (5).png" alt="Aisha" class="tutor-image" />
-      <div class="card-body ">
-        <div class="top-row d-flex justify-content-between">
-          <div class="tutor-name">Aisha</div>
-          <div class="rating-row">
-            <span class="rating-star">4.9 <i class="fas fa-star"></i></span>
-            <span class="sessions-text">2453+ sessions</span>
-          </div>
-        </div>
-        
-        <div class="footer ">
-          <div class="divider"></div>
-         <div class="bottom-row">
-          <div class="rated-for">
-            Rated for  
-          <div class="icon-wrapper">
-          <img src="Vector.png" alt="Icon">
-          </div>
-          </div>
-          <button class="btn-business">Business English</button>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="tutor-card">
-      <img src="Mask group (6).png" alt="Aisha" class="tutor-image" />
-      <div class="card-body ">
-        <div class="top-row d-flex justify-content-between">
-          <div class="tutor-name">Aisha</div>
-          <div class="rating-row">
-            <span class="rating-star">4.9 <i class="fas fa-star"></i></span>
-            <span class="sessions-text">2453+ sessions</span>
-          </div>
-        </div>
-        
-        <div class="footer ">
-          <div class="divider"></div>
-         <div class="bottom-row">
-          <div class="rated-for">
-            Rated for  
-          <div class="icon-wrapper">
-          <img src="Vector.png" alt="Icon">
-          </div>
-          </div>
-          <button class="btn-business">Business English</button>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <!-- Card 1 -->
-    <div class="tutor-card">
-      <img src="Mask group (4).png" alt="Aisha" class="tutor-image" />
-      <div class="card-body ">
-        <div class="top-row d-flex justify-content-between">
-          <div class="tutor-name">Aisha</div>
-          <div class="rating-row">
-            <span class="rating-star">4.9 <i class="fas fa-star"></i></span>
-            <span class="sessions-text">2453+ sessions</span>
-          </div>
-        </div>
-        
-        <div class="footer ">
-          <div class="divider"></div>
-         <div class="bottom-row">
-          <div class="rated-for">
-            Rated for  
-          <div class="icon-wrapper">
-          <img src="Vector.png" alt="Icon">
-          </div>
-          </div>
-          <button class="btn-business">Business English</button>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-   </div>
-
-
-     <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <!-- Owl Carousel JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-<script>
-$(".owl-carousel").owlCarousel({
-    loop: true,
-    margin: 20,
-    nav: true,
-    dots: true,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: { items: 1 },
-      600: { items: 2 },
-      1000: { items: 3 }
-    }
-});
-</script>
- 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
