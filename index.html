@@ -12,107 +12,86 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
  
   <style>
-.contact-section {
+/* FOOTER BACKGROUND */
+.footer-section {
+  background-color: #FCF5FF;
   position: relative;
-}
-.contact-text{
-font-weight: 700;
-font-size: 2.4rem;
-color: black;
+  overflow: hidden;
 }
 
-/* Form Inputs */
-.custom-input, .custom-textarea {
-  padding: 11px 12px;
-  border-radius: 10px;
-  border: 1px solid #454C63;
-  font-size: 1.1rem;
-  font-weight: 400;
-}
-
-.submit-btn {
-  background: #7E00A7;
-  color: white;
-  padding: 10px;
-  font-weight: 400;
-  font-size: 1.1rem;
-  border-radius: 10px;
-  border: 1px solid #454C63;
-}
-.submit-btn:hover{
-  background: #7E00A7;
-  color: white;
-}
-
-/* Image Styling */
-.contact-img {
-  width: 100%;
-  border-radius: 10px;
+/* COLUMN */
+.footer-col {
   position: relative;
-  z-index: 3;
-  object-fit: cover;
-  
-}
-
-/* Purple Decorative Shapes */
-.purple-shape-under {
-  position: absolute;
-  right: 0%;
-  bottom: 0%;
-  z-index: 1;
-}
-
-.purple-shape-top {
-  position: absolute;
-  right: 20%;
-  bottom: 22px;
   z-index: 2;
 }
 
-@media (min-width: 992px) and (max-width: 1400px) {
-  .contact-img {
-    height: 430px;
-    object-fit: cover; /* optional – image stretching avoid karega */
-  }
-  .purple-shape-top{
-    right: 113px;
-  }
+/* LOW OPACITY IMAGES */
+.footer-bg-img {
+  position: absolute;
+  max-width: 120px;
+  z-index: 1;
 }
 
-/* Tablets */
-@media (max-width: 992px) {
-  .purple-shape-top img,
-  .purple-shape-under img {
-    width: 70%;
-  }
-  .purple-shape-top {
-    right: 20px;
-    bottom: 10px;
-  }
+
+.footer-bg-img.top {
+  top: -20px;
+  right: 0;
 }
 
-/* Mobile */
+.fw-text{
+  font-weight:700 ;
+  font-size: 1.6rem;
+  color: black;
+}
+.bg-text{
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.footer-bg-img.bottom {
+ right: 65px;
+}
+
+/* LIST */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-list li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* ICON BG */
+.bg {
+  background-color: #7E00A7;
+}
+
+/* COPYRIGHT */
+.copyright-bar {
+  background-color: #7E00A7;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE FIXES */
 @media (max-width: 768px) {
-  .image-wrapper {
-    margin-top: 20px;
+  .footer-bg-img {
+    display: none; /* cleaner on mobile */
   }
 
-  .purple-shape-under,
-  .purple-shape-top {
-    display: none; /* hide shapes to prevent overlapping on mobile */
-  }
-
-  .contact-text {
+  .footer-section {
     text-align: center;
   }
-}
 
-/* Extra small mobile */
-@media (max-width: 576px) {
-  .contact-text {
-    font-size: 1.6rem;
+  .footer-col span {
+    justify-content: center;
   }
 }
+
+
+
 
 
 
@@ -120,43 +99,89 @@ color: black;
   </style> 
 </head>
 <body>
-<section class="contact-section py-5">
-  <div class="container">
-    <h4 class="contact-text mb-4">Get in Touch</h4>
-    <div class="row align-items-center g-5">
-         
-      <!-- LEFT FORM -->
-      <div class="col-12 col-md-6">
-        
+<footer class="footer-section">
+  <div class="container py-5">
+    <div class="row g-4 position-relative">
 
-        <form>
-          <input type="text" class="form-control mb-3 custom-input" placeholder="Your Name">
-          <input type="text" class="form-control mb-3 custom-input" placeholder="Phone Number">
-          <input type="email" class="form-control mb-3 custom-input" placeholder="Email">
+      <!-- COLUMN 1 -->
+      <div class="col-12 col-md-3 position-relative footer-col">
+        <!-- Low opacity image -->
+        <img src="./images/260-2608530_spoken-english-clipart 2.png"
+          class="footer-bg-img top" alt="">
 
-          <textarea class="form-control mb-5 custom-textarea" rows="4" placeholder="Your Text"></textarea>
+        <img src="./icons/logo careers 1.svg" class="mb-3" alt="Kitecareers">
 
-          <button class="btn submit-btn w-100">Submit</button>
-        </form>
+        <h6 class="fw-text">Contact us</h6>
+
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="bg p-1 rounded-circle">
+            <img src="./icons/phone-call-svgrepo-com 1.png" alt="">
+          </span>
+          <span class="bg-text">+91 75867465784</span> 
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <span class="bg p-1 rounded-circle">
+            <img src="./icons/Mask group (2).png" alt="">
+          </span>
+          <span class="bg-text">kitecareers@gmail.com</span>
+        </div>
+        <!-- Low opacity image -->
+        <img src="./images/Outstanding-Characteristic 2.png"
+             class="footer-bg-img bottom" alt="">
       </div>
 
-      <!-- RIGHT IMAGE -->
-      <div class="col-12 col-md-6 ">
-        <!-- Decorative Shapes -->
-        <div class="purple-shape-under">
-          <img src="./images/Vector 3.png" alt="" class="img-fluid">
-        </div>
-        <div class="purple-shape-top">
-          <img src="./images/Vector 4.png" alt="" class="img-fluid">
-        </div>
+      <!-- COLUMN 2 -->
+      <div class="col-12 col-md-3 position-relative footer-col">
+           <!-- Low opacity image -->
+        <img src="./icons/pngtree-online-learning-education-element-png-image_11596785 2.png"
+          class="footer-bg-img top" alt="">
+        <h6 class="fw-text">About</h6>
+        <ul class="footer-list bg-text">
+          <li>About us</li>
+          <li>Contact us</li>
+          <li>Blog</li>
+          <li>Teach on Kitecareers</li>
+          <li>Help and Support</li>
+        </ul>
+         <img src="./icons/67a4ce91de98d 2.png"
+             class="footer-bg-img bottom" alt="">
+      </div>
 
-        <!-- Image -->
-        <img src="./images/digital-tablet-stylus-pen-laptop-desktop-close-up 1.png" class="img-fluid  contact-img" alt="">
+      <!-- COLUMN 3 -->
+      <div class="col-12 col-md-3 position-relative footer-col">
+        <img src="./icons/png-clipart-bus-and-ruler-illustration-student-light-educational-technology-learning-element-bulb-text-university 2.png" class="footer-bg-img top" alt="">
+        <h6 class="fw-text">Legal & Accessibility</h6>
+        <ul class="footer-list bg-text">
+          <li>Accessibility statement</li>
+          <li>Privacy policy</li>
+          <li>Sitemap</li>
+          <li>Terms & Conditions</li>
+        </ul>
+        <img src="./icons/100-1001965_outstanding-technology-clipart-png-clipartxtras-teaching-and-learning-with-technology-proceedings 1.png"
+             class="footer-bg-img bottom" alt="">
+      </div>
+     
+
+      <!-- COLUMN 4 -->
+      <div class="col-12 col-md-3 position-relative footer-col">
+      
+        <h6 class="fw-text">Download the App</h6>
+        <img src="./images/Google 2.png" class="img-fluid mt-2" alt="Google Play">
+         <img src="./icons/png-transparent-student-higher-education-study-skills-learning-products-people-logo-teacher 2.png"
+             class="footer-bg-img bottom" alt="">
+      </div>
       </div>
 
     </div>
   </div>
-</section>
+
+  <!-- COPYRIGHT BAR -->
+  <div class="copyright-bar text-white bg-text py-3">
+    © 2025 Kitecareers, Inc.
+  </div>
+</footer>
+
 
 
 

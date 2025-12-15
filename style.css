@@ -1256,3 +1256,159 @@ position: absolute;
     max-width: 140px;
   }
 }
+
+
+/* form section-13 */
+
+.contact-section {
+  position: relative;
+}
+.contact-text{
+font-weight: 700;
+font-size: 2.4rem;
+color: black;
+}
+
+/* Form Inputs */
+.custom-input, .custom-textarea {
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid #454C63;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.submit-btn {
+  background: #7E00A7;
+  color: white;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #454C63;
+}
+.submit-btn:hover{
+  background: #7E00A7;
+  color: white;
+}
+
+/* Image Styling */
+.contact-img {
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 3;
+  object-fit: cover;
+  
+}
+
+/* Purple Decorative Shapes */
+.purple-shape-under {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  z-index: 1;
+}
+
+.purple-shape-top {
+  position: absolute;
+  right: 12%;
+  bottom: 22px;
+  z-index: 2;
+}
+
+@media  (max-width: 1400px) {
+  .contact-img {
+    height: 430px;
+    object-fit: cover; /* optional – image stretching avoid karega */
+  }
+  .purple-shape-top{
+    right: 15%;
+    background-color: #FCF5FF;
+  }
+}
+
+
+
+/* footer section-14 */
+/* FOOTER BACKGROUND */
+.footer-section {
+  background-color: #FCF5FF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* COLUMN */
+.footer-col {
+  position: relative;
+  z-index: 2;
+}
+
+/* LOW OPACITY IMAGES */
+.footer-bg-img {
+  position: absolute;
+  z-index: 1;
+}
+
+
+.footer-bg-img.top {
+  top: -40px;
+  right: -17px;
+}
+
+.fw-text{
+  font-weight:700 ;
+  font-size: 1.6rem;
+  color: black;
+}
+.bg-text{
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.footer-bg-img.bottom {
+ right: 65px;
+ bottom: -50px;
+}
+
+/* LIST */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-list li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* ICON BG */
+.bg {
+  background-color: #7E00A7;
+}
+
+/* COPYRIGHT */
+.copyright-bar {
+  background-color: #7E00A7;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  .footer-bg-img {
+    display: none; /* cleaner on mobile */
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-col span {
+    justify-content: center;
+  }
+  .center{
+    display: flex;
+    justify-content: center;
+  }
+}
